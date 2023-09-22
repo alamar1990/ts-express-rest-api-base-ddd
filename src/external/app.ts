@@ -46,7 +46,7 @@ app.use(authRoute)
 app.use(protectedRoute)
 
 // MongoDB Init
-mongoDbInit().then()
+// mongoDbInit().then()
 // mysql Init
 sequelizeDbInit().then()
 

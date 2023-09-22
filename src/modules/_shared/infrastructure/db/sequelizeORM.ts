@@ -7,12 +7,14 @@ export const sequelize = config.DB_SEQUELIZE_URI
       host: config.DB_SEQUELIZE_HOST,
       port: config.DB_SEQUELIZE_PORT,
       dialect: <Dialect>config.DB_SEQUELIZE_DIALECT,
-      dialectOptions: {
-        // ssl: {
-        //   require: false,
-        //   rejectUnauthorized: false
-        // }
-      }
+      dialectOptions: config.DB_SEQUELIZE_SSL
+        ? {
+            ssl: {
+              require: true,
+              rejectUnauthorized: true
+            }
+          }
+        : {}
     })
 
 export const sequelizeDbInit = async () => {
